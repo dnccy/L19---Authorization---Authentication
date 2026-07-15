@@ -126,10 +126,7 @@ app.post('/login', (req, res) => {
             // Successful login
             req.session.user = results[0]; // store user in session
             req.flash('success', 'Login successful!');
-            if (req.session.user.role == 'admin')
-                res.redirect('/admin');
-            else
-                res.redirect('/dashboard');
+            res.redirect('/dashboard');
         } else {
             // Invalid credentials
             req.flash('error', 'Invalid email or password.');
